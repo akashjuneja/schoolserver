@@ -45,6 +45,37 @@ which will provide the save ,findById,findALL. etc methods etc.
 Also Provide @RepositoryEntity 
 
 
+### Exception
+1. We used ResourceNotFound when the db does not have record
+2. Make a class ResourceNotFound which extends Runtime exception which implements from serializable interface and we have declared serialVersionUID
+above this , we have used ResponseStatus annotation
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+
+### Controller
+
+here we create a class StudentController
+and add
+1. @RestController annotation
+2. @RequestMapping("/api/v1/") annotation
+above the class
+
+here we make StudentRepository object and add @Autowired annotation
+
+now for the APIs,
+
+For the Get APIs we add @GetMapping Annotation
+````
+@GetMapping("/employees")
+public List<Student> getAllStudents(){
+return studentrepository.findAll();
+}
+````
+
+
+
+
+
+
 
 
 
