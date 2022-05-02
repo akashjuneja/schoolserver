@@ -71,6 +71,14 @@ return studentrepository.findAll();
 }
 ````
 
+For The Post API , we add @PostMapping and for getting the Request we add @RequestBody
+````
+ @PostMapping("/employees")
+    public Student createEmployee(@RequestBody  Student student){
+        return studentrepository.save(student);
+    }
+````
+
 
 
 

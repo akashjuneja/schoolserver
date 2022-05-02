@@ -4,9 +4,7 @@ package com.school.controller;
 import com.school.model.Student;
 import com.school.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +18,11 @@ public class StudentController {
     @GetMapping("/employees")
     public List<Student> getAllStudents(){
         return studentrepository.findAll();
+    }
+
+    @PostMapping("/employees")
+    public Student createEmployee(@RequestBody  Student student){
+        return studentrepository.save(student);
     }
 
 }
